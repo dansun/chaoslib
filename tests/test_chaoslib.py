@@ -8,10 +8,10 @@ class Test_chaoslib(TestCase):
     # Define setup and teardown for classes and methods
     #
     def setup():
-        # Setup something
+        print('Setup...')
 
     def teardown():
-        # Teardown something
+        print('Teardown...')
 
     #
     # Define tests for chaoslib
