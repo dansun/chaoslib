@@ -28,15 +28,16 @@ logging.basicConfig(
 #
 randomizer = RandomDotOrg()
 logger = logging.getLogger(__name__)
+default_sorting = lambda x, y: x>=y
 
 #
 # Define sort function
 # values: list of values to be sorted randomly
 # return: sorted list of values
 #
-def sort(values):
+def sort(values, sorting=default_sorting):
     randomized_values = randomize(values)
-    while not is_sorted(randomized_values):
+    while not is_sorted(randomized_values, sorting):
         randomized_values = randomize(randomized_values)
         print(randomized_values)
     return randomized_values
@@ -47,12 +48,12 @@ def sort(values):
 # return: new list with same values as argument in random order
 #
 def randomize(values):
-  new_values = []
+  randomized_values = []
   while values:
-    theValue = randomizer.choice(values)
-    values.remove(theValue)
-    new_values.append(theValue)
-  return new_values
+    value = randomizer.choice(values)
+    values.remove(value)
+    randomized_values.append(value)
+  return randomized_values
 
 #
 # Check if values in argument is sorted with given lambda
@@ -60,8 +61,8 @@ def randomize(values):
 # sorting: lambda for verifying sorting
 # return: true if list is sorted according to lambda
 #
-def is_sorted(values, sorting=lambda x, y: x >= y):
+def is_sorted(values, sorting=default_sorting):
   for index, enumerated_value in enumerate(values[1:]):
-    if sorting(enumerated_value, values[index]):
+    if not sorting(enumerated_value, values[index]):
       return False
   return True

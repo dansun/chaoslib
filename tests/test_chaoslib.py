@@ -8,16 +8,31 @@ class Test_chaoslib(TestCase):
     # Define setup and teardown for classes and methods
     #
     def setup():
-        print('Setup.')
+        # Setup something
 
     def teardown():
-        print('Teardown.')
+        # Teardown something
 
     #
     # Define tests for chaoslib
     #
     @with_setup(setup, teardown)
-    def test_sort(testcase):
-        mylist = [1,2,3]
-        assert chaoslib.sort(mylist) != mylist
+    def test_default_sorting(testcase):
+        assert chaoslib.sort([3, 2, 1]) == [1, 2, 3]
 
+    @with_setup(setup, teardown)
+    def test_custom_sorting(testcase):
+        assert chaoslib.sort([3, 1, 2], lambda x,y: x<=y) == [3, 2, 1]
+        assert chaoslib.sort([3, 1, 2], lambda x,y: x>=y) == [1, 2, 3]
+
+    @with_setup(setup, teardown)
+    def test_default_is_sorted(testcase):
+        assert chaoslib.is_sorted([1, 2, 3]) is True
+        assert chaoslib.is_sorted([3, 2, 1]) is False
+
+    @with_setup(setup, teardown)
+    def test_custom_is_sorted(testcase):
+        assert chaoslib.is_sorted([1, 2, 3], lambda x,y: x>=y) is True
+        assert chaoslib.is_sorted([3, 2 ,1], lambda x,y: x>=y) is False
+        assert chaoslib.is_sorted([1, 2, 3], lambda x,y: x<=y) is False
+        assert chaoslib.is_sorted([3, 2 ,1], lambda x,y: x<=y) is True
