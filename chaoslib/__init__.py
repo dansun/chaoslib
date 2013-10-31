@@ -26,14 +26,14 @@ logging.basicConfig(
 #
 # Instanciate module variables
 #
-randomizer = RandomDotOrg()
-logger = logging.getLogger(__name__)
-default_sorting = lambda x, y: x >= y
+RANDOMIZER = RandomDotOrg()
+LOGGER = logging.getLogger(__name__)
+DEFAULT_SORTING = lambda x, y: x >= y
 
 #
 # Sort values
 #
-def sort(values, sorting=default_sorting):
+def sort(values, sorting=DEFAULT_SORTING):
     """
       Define sort function
       values: list of values to be sorted randomly
@@ -42,7 +42,7 @@ def sort(values, sorting=default_sorting):
     randomized_values = randomize(values)
     while not is_sorted(randomized_values, sorting):
         randomized_values = randomize(randomized_values)
-        logger.debug('Randomized to '+str(randomized_values))
+        LOGGER.debug('Randomized to '+str(randomized_values))
     return randomized_values
 
 #
@@ -56,7 +56,7 @@ def randomize(values):
     """
     randomized_values = []
     while values:
-        value = randomizer.choice(values)
+        value = RANDOMIZER.choice(values)
         values.remove(value)
         randomized_values.append(value)
     return randomized_values
@@ -64,7 +64,7 @@ def randomize(values):
 #
 # Check if sorted
 #
-def is_sorted(values, sorting=default_sorting):
+def is_sorted(values, sorting=DEFAULT_SORTING):
     """
       Check if values in argument is sorted with given lambda
       values: list of values to be verified
