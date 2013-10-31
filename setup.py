@@ -20,8 +20,7 @@ setup(name='chaoslib',
         "Intended Audience :: Developers",
         "License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)",
         "Operating System :: OS Independent",
-        "Topic :: Software Development :: Libraries :: Python Modules",
-        "Topic :: Sorting :: Chaotic"],
+        "Topic :: Software Development :: Libraries :: Python Modules"],
       long_description = """\
       -------------------------------------------------------------------
          _________ .__                        .____    ._____.    
