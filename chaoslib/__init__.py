@@ -42,7 +42,7 @@ def sort(values, sorting=default_sorting):
     randomized_values = randomize(values)
     while not is_sorted(randomized_values, sorting):
         randomized_values = randomize(randomized_values)
-        print(randomized_values)
+        logger.debug('Randomized to '+str(randomized_values))
     return randomized_values
 
 #
@@ -56,9 +56,9 @@ def randomize(values):
     """
     randomized_values = []
     while values:
-      value = randomizer.choice(values)
-      values.remove(value)
-      randomized_values.append(value)
+        value = randomizer.choice(values)
+        values.remove(value)
+        randomized_values.append(value)
     return randomized_values
 
 #
@@ -72,6 +72,6 @@ def is_sorted(values, sorting=default_sorting):
       return: true if list is sorted according to lambda
     """
     for index, enumerated_value in enumerate(values[1:]):
-      if not sorting(enumerated_value, values[index]):
-        return False
+        if not sorting(enumerated_value, values[index]):
+            return False
     return True
