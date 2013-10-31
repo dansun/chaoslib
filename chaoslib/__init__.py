@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+"""
+   Chaoslib module for sorting
+"""
 from randomdotorg import RandomDotOrg
 import logging
 
