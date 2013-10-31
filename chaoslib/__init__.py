@@ -1,17 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
--------------------------------------------------------------------
-   _________ .__                        .____    ._____.
-   \_   ___ \|  |__ _____    ____  _____|    |   |__\_ |__
-   /    \  \/|  |  \\__  \  /  _ \/  ___/    |   |  || __ \
-   \     \___|   Y  \/ __ \(  <_> )___ \|    |___|  || \_\ \
-    \______  /___|  (____  /\____/____  >_______ \__||___  /
-           \/     \/     \/           \/        \/       \/ 
--------------------------------------------------------------------
-"""
-#
-# Import dependencies
-#
+
 from randomdotorg import RandomDotOrg
 import logging
 
@@ -52,7 +40,7 @@ def randomize(values):
     """
       Randomze order of values in list
       values: list of values to truly randomize order of
-      return: new list with same values as argument in random order 
+      return: new list with same values as argument in random order
     """
     randomized_values = []
     while values:

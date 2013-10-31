@@ -1,9 +1,14 @@
 # -*- coding: utf-8 -*-
+
 from nose import with_setup
 from unittest import TestCase
 import chaoslib
 
 class Test_chaoslib(TestCase):
+    """
+        Testing all defined functions in the chaoslib.
+    """
+
     #
     # Define setup and teardown for classes and methods
     #
@@ -14,7 +19,7 @@ class Test_chaoslib(TestCase):
         print('Teardown...')
 
     #
-    # Define tests for chaoslib
+    # Define testcases for chaoslib
     #
     @with_setup(setup, teardown)
     def test_default_sorting(testcase):
@@ -36,3 +41,4 @@ class Test_chaoslib(TestCase):
         assert chaoslib.is_sorted([3, 2 ,1], lambda x,y: x>=y) is False
         assert chaoslib.is_sorted([1, 2, 3], lambda x,y: x<=y) is False
         assert chaoslib.is_sorted([3, 2 ,1], lambda x,y: x<=y) is True
+        
